@@ -1,5 +1,5 @@
-[global.routes]
+[default.routes]
 g = "https://google.com/"
 
-[global.parameterized_routes]
+[default.parameterized_routes]
 g = "https://google.com/search?q=%s"
