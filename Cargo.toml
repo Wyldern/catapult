@@ -1,10 +1,13 @@
 [package]
 name = "catapult"
-version = "0.1.1"
-authors = ["Nathaniel Emerson <nath.emerson@drakon.io>"]
-edition = "2021"
+version = "0.1.2"
+authors = ["Nathaniel Emerson <nath@wyldern.dev>"]
+edition = "2024"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rocket = "0.5.0-rc.2"
+rocket = "0.5.0"
+
+[dev-dependencies]
+rocket = { version = "0.5.0", features = ["secrets"] }

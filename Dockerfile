@@ -1,11 +1,11 @@
-FROM rust:1-bullseye AS builder
+FROM rust:1-bookworm AS builder
 
 WORKDIR /usr/src/catapult
 COPY . .
 RUN cargo install --path .
 
 
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 WORKDIR /catapult
 COPY --from=builder /usr/local/cargo/bin/catapult /usr/local/bin/catapult
