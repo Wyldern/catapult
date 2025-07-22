@@ -1,0 +1,27 @@
+[Unit]
+Description=Catapult
+
+[Container]
+ContainerName=catapult
+Image=catapult:latest
+
+Volume=%h/.catapult.toml:/catapult/Rocket.toml:ro
+
+HostName=catapult
+PublishPort=127.0.0.1:9999:8000/tcp
+
+# UID mapping is needed to run linuxserver.io container as rootless podman.
+# This will map UID=1000 inside the container to intermediate UID=0.
+# For rootless podman intermediate UID=0 will be mapped to the UID of current user.
+UIDMap=1000:0:1
+UIDMap=0:1:1000
+UIDMap=1001:1001:64536
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+
+[Quadlet]
+DefaultDependencies=false
